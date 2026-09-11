@@ -22,31 +22,31 @@ erDiagram
     HASHTAGS ||--o{ POST_HASHTAGS : labels
     USERS ||--o{ INFLUENCE_SCORES : receives
 
-    USERS { bigint user_id PK
-            varchar username UK
-            varchar email UK
+    USERS { bigint user_id
+            varchar username
+            varchar email
             date joined_date }
-    FOLLOWS { bigint follower_id PK_FK
-              bigint following_id PK_FK
+    FOLLOWS { bigint follower_id
+              bigint following_id
               datetime followed_at }
-    POSTS { bigint post_id PK
-            bigint user_id FK
+    POSTS { bigint post_id
+            bigint user_id
             enum content_type
             datetime posted_at }
-    POST_ENGAGEMENTS { bigint engagement_id PK
-                       bigint post_id FK
-                       bigint user_id FK
+    POST_ENGAGEMENTS { bigint engagement_id
+                       bigint post_id
+                       bigint user_id
                        enum engagement_type }
-    SHARES { bigint share_id PK
-             bigint original_post_id FK
-             bigint parent_share_id FK
-             bigint shared_by_user_id FK }
-    HASHTAGS { bigint hashtag_id PK
-               varchar tag_name UK }
-    POST_HASHTAGS { bigint post_id PK_FK
-                    bigint hashtag_id PK_FK }
-    INFLUENCE_SCORES { bigint user_id PK_FK
-                       date month_start PK
+    SHARES { bigint share_id
+             bigint original_post_id
+             bigint parent_share_id
+             bigint shared_by_user_id }
+    HASHTAGS { bigint hashtag_id
+               varchar tag_name }
+    POST_HASHTAGS { bigint post_id
+                    bigint hashtag_id }
+    INFLUENCE_SCORES { bigint user_id
+                       date month_start
                        decimal influence_score }
 ```
 
